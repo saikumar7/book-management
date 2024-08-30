@@ -1,0 +1,17 @@
+<div>
+  <h1>Book List</h1>
+  @for (book of book$ | async; track $index) {
+    <h2>{{book.title}}</h2>
+    <h3>{{book.author}}</h3>
+    <button (click)="removeBook(book.id)">Remove Book</button>
+  }
+</div>
+
+<div>
+  <input type="text" #bookId placeholder="Book Id">
+  <input type="text" #bookTitle placeholder="Book Title">
+  <input type="text" #bookAuthor placeholder="Book Author">
+  <button (click)="addBook(bookId.value, bookTitle.value, bookAuthor.value)">
+    Add Book
+  </button>
+</div>
